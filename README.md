@@ -5,7 +5,9 @@
 A Home Assistant Lovelace card for AC units and heat pumps: an animated
 indoor-unit graphic per unit (airflow, mode, target temperature), live
 power/COP/cost metrics, and full interactive control — mode buttons, target
-temperature +/-, and fan/swing cycling — right from the card.
+temperature +/-, a compact fan-speed menu, and swing control — right from the
+card. The unit grid automatically fills the available width, whether the card
+contains one, two, or several AC units.
 
 Works with any `climate` entity that exposes `current_temperature` /
 `temperature` and the standard mode/fan/swing attributes. Power, COP and cost
