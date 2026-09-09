@@ -17,6 +17,9 @@ configured.
 Plain JavaScript, no build step — copy the file in and register it as a
 dashboard resource.
 
+The visual card editor provides entity pickers and add/remove controls for AC
+units. Layout columns automatically fill the available width for any unit count.
+
 > **Note:** the card's on-screen labels (mode names, status text, button
 > labels) are currently Danish only, since that's the household this card
 > was built for. There's no built-in translation layer yet — fork the file

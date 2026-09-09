@@ -1,6 +1,6 @@
 {
   "name": "ha-ac-climate-card",
-  "version": "0.1.0",
+  "version": "0.3.0",
   "description": "Home Assistant Lovelace card: animated, interactive overview and control for AC units and heat pumps.",
   "type": "module",
   "repository": {
