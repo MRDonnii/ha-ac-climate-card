@@ -1,7 +1,9 @@
-const VERSION="0.2.1";
+import "./ha-card-list-editor.js";
+const VERSION="0.3.0";
 class HAACClimateCard extends HTMLElement{
  constructor(){super();this.attachShadow({mode:"open"});this._config={};this._hass=undefined;this._signature="";this._fanMenuIndex=null;}
  static getStubConfig(){return{title:"AC & varmepumper",units:[]};}
+ static getConfigElement(){const e=document.createElement("ha-card-list-editor");e.definition={roots:[{key:"title",label:"Titel"},{key:"animation",label:"Animation",type:"boolean"}],collections:[{key:"units",label:"AC-anlæg",itemLabel:"anlæg",defaults:{name:"Nyt anlæg"},fields:[{key:"name",label:"Navn"},{key:"climate",label:"Climate",type:"entity"},{key:"output",label:"Termisk output",type:"entity"},{key:"input",label:"Elforbrug",type:"entity"},{key:"cop",label:"COP",type:"entity"},{key:"daily_energy",label:"Dagligt forbrug",type:"entity"},{key:"daily_cost",label:"Daglig pris",type:"entity"},{key:"heat_price",label:"Varmepris",type:"entity"},{key:"hour_cost",label:"Pris pr. time",type:"entity"}]}]};return e;}
  setConfig(config){if(!config||!Array.isArray(config.units))throw new Error("AC-kortet kræver en units-liste");this._config={title:"AC & varmepumper",animation:true,...config};this._signature="";this._render();}
  set hass(hass){this._hass=hass;const ids=(this._config.units||[]).flatMap(u=>Object.values(u)).filter(v=>typeof v==="string"&&v.includes("."));const sig=JSON.stringify(ids.map(id=>{const e=hass?.states?.[id];return[id,e?.state,e?.attributes?.current_temperature,e?.attributes?.temperature,e?.attributes?.fan_mode,e?.attributes?.swing_mode]}));if(sig===this._signature)return;this._signature=sig;this._render();}
  getCardSize(){return 7;}getGridOptions(){return{rows:"auto",columns:12,min_columns:6};}
