@@ -2,6 +2,9 @@
 
 ![Preview](docs/preview.png)
 
+> HACS installs both JavaScript files automatically. For a manual installation,
+> copy `ha-ac-climate-card.js` and `ha-card-list-editor.js` into the same folder.
+
 A Home Assistant Lovelace card for AC units and heat pumps: an animated
 indoor-unit graphic per unit (airflow, mode, target temperature), live
 power/COP/cost metrics, and full interactive control — mode buttons, target
